@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Yanes Guerra | Econometría y Ciencia de Datos</title>
+<meta name="description" content="Carlos Andrés Yanes Guerra, M.Sc. — Coordinador de la Maestría en Economía de la Universidad del Norte. Econometría, series de tiempo, evaluación de impacto y ciencia de datos.">
+<meta name="theme-color" content="#f4efe6">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Carlos Yanes Guerra | Econometría y Ciencia de Datos">
+<meta property="og:description" content="Economista, profesor e investigador. Coordinador de la Maestría en Economía, Universidad del Norte.">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@keynes37">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Carlos Andrés Yanes Guerra",
+  "honorificSuffix": "M.Sc.",
+  "jobTitle": "Coordinador de la Maestría en Economía",
+  "worksFor": { "@type": "CollegeOrUniversity", "name": "Universidad del Norte" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Universidad de los Andes" },
+    { "@type": "CollegeOrUniversity", "name": "Universidad de San Buenaventura" },
+    { "@type": "CollegeOrUniversity", "name": "Universidad de Cartagena" }
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Barranquilla", "addressCountry": "CO" },
+  "email": "cayanes@uninorte.edu.co",
+  "knowsAbout": ["Econometría", "Series de tiempo", "Evaluación de impacto", "Ciencia de datos", "Machine Learning", "R", "Python"],
+  "knowsLanguage": ["es", "en"],
+  "sameAs": [
+    "https://www.linkedin.com/in/carlos-andres-yanes-guerra-0026bb31/",
+    "https://github.com/keynes37",
+    "https://orcid.org/0000-0003-0683-3727",
+    "https://twitter.com/keynes37"
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e4639'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='30' fill='%23f4efe6'%3ECY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script>
+  // Tema e idioma guardados (antes de pintar, para evitar parpadeos)
+  try {
+    if (localStorage.getItem('cy-theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+    var l = localStorage.getItem('cy-lang') || ((navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+    document.documentElement.lang = l;
+  } catch (e) {}
+</script>
+<style>
+/* ============ Paleta: papel, tinta, verde bosque, terracota y ocre ============ */
+:root {
+  --bg: #f4efe6; --bg-2: #ebe4d6; --card: #fbf8f2;
+  --ink: #1b2420; --ink-2: #4a544f; --ink-3: #7b827d; --line: #ddd4c3;
+  --green: #1e4639; --green-2: #2d6a55; --terra: #c4553a; --ochre: #d99a2b; --on-green: #f4efe6;
+  --shadow: 0 1px 2px rgba(27,36,32,.06), 0 8px 28px rgba(27,36,32,.08);
+  --radius: 18px;
+  --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+[data-theme="dark"] {
+  --bg: #111613; --bg-2: #171e1a; --card: #1a221e;
+  --ink: #ece6da; --ink-2: #b3b8b0; --ink-3: #828a83; --line: #2b3530;
+  --green: #7cc4a4; --green-2: #5fae8c; --terra: #ec8a6c; --ochre: #f0b84f; --on-green: #0f1411;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+}
+/* Bilingüe: cada texto existe en <… lang="es"> y <… lang="en">; se muestra solo el del idioma activo */
+html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16.5px/1.65 var(--sans); -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .5; background-image: radial-gradient(rgba(27,36,32,.05) 1px, transparent 1px); background-size: 22px 22px; }
+[data-theme="dark"] body::before { background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px); }
+main, header, footer { position: relative; z-index: 1; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { width: min(1160px, 100% - 48px); margin-inline: auto; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
+.eyebrow { font: 500 12.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--terra); margin: 0 0 14px; display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 22px; height: 1.5px; background: currentColor; }
+.section { padding: 110px 0; }
+.section-head { max-width: 740px; margin-bottom: 52px; }
+.section-head h2 { font-size: clamp(32px, 4.4vw, 50px); }
+.section-head h2 em { font-style: italic; color: var(--green); }
+.section-head p { color: var(--ink-2); font-size: 18px; margin: 16px 0 0; }
+.mini-title { font: 500 12.5px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 16px; }
+
+/* ============ Botones ============ */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .2s, background .2s, color .2s, border-color .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--green); color: var(--on-green); box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--green) 70%, transparent); }
+.btn-primary:hover { background: var(--green-2); }
+.btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+.btn-terra { background: var(--terra); color: #fff; }
+:focus-visible { outline: 2.5px solid var(--ochre); outline-offset: 3px; border-radius: 6px; }
+
+/* ============ Header ============ */
+.header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+.header.scrolled { border-bottom-color: var(--line); }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-mark { width: 40px; height: 40px; border-radius: 12px; background: var(--green); color: var(--on-green); display: grid; place-items: center; font: italic 700 18px var(--serif); }
+.logo-text { font: 600 17px var(--serif); }
+.logo-text small { display: block; font: 500 11px var(--mono); color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
+.nav { display: flex; align-items: center; gap: 2px; }
+.nav a { text-decoration: none; padding: 8px 13px; border-radius: 999px; font-weight: 500; font-size: 15px; color: var(--ink-2); transition: color .2s, background .2s; }
+.nav a:hover, .nav a.active { color: var(--ink); background: var(--bg-2); }
+.nav .nav-cv { background: var(--ink); color: var(--bg); margin-left: 6px; }
+.nav .nav-cv:hover { background: var(--green); color: var(--on-green); }
+.tools { display: flex; align-items: center; gap: 8px; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); display: grid; place-items: center; cursor: pointer; font-size: 15px; transition: border-color .2s, transform .2s; }
+.icon-btn:hover { border-color: var(--ink); transform: rotate(-12deg); }
+.lang-btn { font: 600 12.5px var(--mono); letter-spacing: .04em; }
+.lang-btn:hover { transform: none; }
+.menu-btn { display: none; }
+@media (max-width: 980px) {
+  .menu-btn { display: grid; }
+  .nav { position: fixed; inset: 72px 0 auto 0; flex-direction: column; align-items: stretch; gap: 2px; background: var(--bg); padding: 16px 24px 24px; border-bottom: 1px solid var(--line); transform: translateY(-120%); transition: transform .35s ease; z-index: -1; }
+  .nav.open { transform: none; }
+  .nav a { padding: 14px 16px; font-size: 17px; }
+  .nav .nav-cv { margin: 8px 0 0; text-align: center; }
+}
+
+/* ============ Hero ============ */
+.hero { padding: 64px 0 40px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 6.6vw, 82px); font-weight: 600; margin-bottom: 22px; }
+.hero h1 em { font-style: italic; color: var(--green); font-weight: 500; }
+.hero-value { font: 500 clamp(19px, 2vw, 23px)/1.45 var(--serif); max-width: 560px; margin: 0 0 16px; }
+.hero-lead { color: var(--ink-2); max-width: 560px; margin: 0 0 30px; }
+.hero-role { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-size: 14px; font-weight: 500; margin-bottom: 26px; }
+.hero-role .dot { width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: var(--on-green); display: grid; place-items: center; font-size: 12px; flex: none; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+.socials { display: flex; gap: 10px; }
+.socials a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; text-decoration: none; border: 1.5px solid var(--line); color: var(--ink-2); transition: all .2s; }
+.socials a:hover { background: var(--green); border-color: var(--green); color: var(--on-green); transform: translateY(-3px); }
+.ts-card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 22px 22px 16px; margin: 0; }
+.ts-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.ts-photo { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 62px; height: 62px; border-radius: 50%; overflow: hidden; flex: none; position: relative; background: var(--green); color: var(--on-green); display: grid; place-items: center; font: italic 700 24px var(--serif); border: 3px solid var(--bg); box-shadow: 0 0 0 1.5px var(--line); }
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ts-photo strong { display: block; font: 600 17px var(--serif); }
+.ts-photo small { color: var(--ink-3); font-size: 13px; }
+.ts-badge { font: 500 11.5px var(--mono); color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; white-space: nowrap; }
+.ts-canvas-wrap { position: relative; height: 290px; margin: 10px -6px 0; cursor: crosshair; touch-action: pan-y; }
+#ts-canvas { width: 100%; height: 100%; display: block; }
+.ts-readout { position: absolute; top: 6px; left: 8px; font: 500 12.5px/1.5 var(--mono); color: var(--ink-2); background: color-mix(in srgb, var(--card) 85%, transparent); padding: 6px 10px; border-radius: 8px; pointer-events: none; }
+.ts-readout b { color: var(--ink); font-weight: 500; }
+.ts-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 6px; }
+.ts-legend { display: flex; gap: 16px; font-size: 13px; color: var(--ink-2); flex-wrap: wrap; }
+.ts-legend i { display: inline-block; width: 16px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+.ts-legend .band { height: 10px; opacity: .35; }
+.ts-btn { font: 500 12.5px var(--mono); background: none; border: 1.5px solid var(--line); color: var(--ink); padding: 7px 12px; border-radius: 999px; cursor: pointer; }
+.ts-btn:hover { border-color: var(--terra); color: var(--terra); }
+@media (max-width: 960px) { .hero .wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ============ Cifras ============ */
+.stats { padding: 20px 0 10px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--line); }
+.stat { padding: 26px 22px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat strong { display: block; font: 600 clamp(36px, 4vw, 50px)/1 var(--serif); color: var(--green); margin-bottom: 8px; }
+.stat strong sup { font-size: .5em; color: var(--terra); }
+.stat > span { color: var(--ink-2); font-size: 14.5px; }
+@media (max-width: 760px) { .stats-grid { grid-template-columns: 1fr 1fr; } .stat:nth-child(2) { border-right: 0; } .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+/* ============ Sobre mí ============ */
+.about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: start; }
+.about-text p { font-size: 18px; color: var(--ink-2); margin: 0 0 18px; }
+.about-text p.big { font: 500 clamp(22px, 2.4vw, 28px)/1.4 var(--serif); color: var(--ink); }
+.about-text p.big::first-letter { font-size: 3.1em; float: left; line-height: .85; margin: 6px 10px 0 0; color: var(--terra); font-style: italic; }
+.areas { display: grid; gap: 12px; }
+.area { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: transform .25s, border-color .25s; }
+.area:hover { transform: translateX(6px); border-color: var(--green); }
+.area-icon { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--bg-2); color: var(--green); font-size: 18px; }
+.area h3 { font-size: 18px; margin: 2px 0 4px; }
+.area p { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.5; }
+.tools-row { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 7px 13px; border-radius: 999px; border: 1.5px solid var(--line); font: 500 13.5px var(--mono); background: var(--card); }
+.chips li.main { border-color: var(--green); color: var(--green); }
+@media (max-width: 900px) { .about-grid, .tools-row { grid-template-columns: 1fr; gap: 36px; } }
+
+/* ============ Trayectoria ============ */
+.journey { background: var(--bg-2); }
+.tl-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; }
+.tl-col h3 { font-size: 24px; margin-bottom: 26px; display: flex; align-items: center; gap: 12px; }
+.tl-col h3 i { color: var(--terra); font-size: 18px; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline > li { position: relative; padding: 0 0 30px; }
+.timeline > li:last-child { padding-bottom: 0; }
+.timeline > li::before { content: ""; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-2); border: 2.5px solid var(--green); }
+.timeline > li.now::before { background: var(--terra); border-color: var(--terra); box-shadow: 0 0 0 5px color-mix(in srgb, var(--terra) 22%, transparent); }
+.tl-date { font: 500 13px var(--mono); color: var(--terra); }
+.timeline h4 { font-size: 20px; margin: 4px 0 2px; }
+.timeline .org { margin: 0; color: var(--ink-2); font-size: 15px; font-weight: 500; }
+.timeline .note { margin: 6px 0 0; color: var(--ink-3); font-size: 14.5px; line-height: 1.55; }
+.roles { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.roles li { font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+.extra { margin-top: 36px; padding: 22px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
+.extra ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.extra li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+.extra li b { color: var(--ink); font-weight: 600; display: block; }
+.extra .y { font: 500 12.5px var(--mono); color: var(--terra); padding-top: 2px; }
+@media (max-width: 860px) { .tl-grid { grid-template-columns: 1fr; } }
+
+/* ============ Consultoría ============ */
+.consult-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.consult { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 10px; position: relative; transition: transform .3s, box-shadow .3s; }
+.consult:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.consult .yr { font: 600 34px/1 var(--serif); color: var(--line); position: absolute; top: 18px; right: 20px; }
+[data-theme="dark"] .consult .yr { color: #2f3a34; }
+.consult .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--terra); color: #fff; display: grid; place-items: center; font-size: 18px; }
+.consult h3 { font-size: 19px; }
+.consult .client { font: 500 12.5px var(--mono); color: var(--green); }
+.consult p { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+@media (max-width: 1000px) { .consult-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .consult-grid { grid-template-columns: 1fr; } }
+
+/* ============ Cursos ============ */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: -20px 0 32px; }
+.filter { padding: 9px 18px; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; color: var(--ink-2); font: 600 14px var(--sans); cursor: pointer; transition: all .2s; }
+.filter:hover { border-color: var(--ink); color: var(--ink); }
+.filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.filter .n { font: 500 12px var(--mono); opacity: .7; margin-left: 4px; }
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.course { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
+.course::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--terra); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
+.course:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: transparent; }
+.course:hover::after { transform: scaleX(1); }
+.course[hidden] { display: none; }
+.course-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+.course-icon { width: 50px; height: 50px; border-radius: 14px; background: var(--green); color: var(--on-green); display: grid; place-items: center; font-size: 20px; }
+.level { font: 500 11.5px var(--mono); text-transform: uppercase; letter-spacing: .1em; padding: 5px 10px; border-radius: 999px; background: var(--bg-2); color: var(--ink-2); }
+.level.ma { background: color-mix(in srgb, var(--ochre) 22%, transparent); color: color-mix(in srgb, var(--ochre) 55%, var(--ink)); }
+.course h3 { font-size: 22px; margin-bottom: 8px; }
+.course p { color: var(--ink-2); font-size: 15px; margin: 0 0 18px; flex: 1; }
+.course .program { font: 500 12.5px var(--mono); color: var(--ink-3); margin-bottom: 16px; }
+.course a.more { font-weight: 600; font-size: 15px; text-decoration: none; color: var(--green); display: inline-flex; align-items: center; gap: 8px; }
+.course a.more i { transition: transform .2s; }
+.course a.more:hover i { transform: translateX(4px); }
+.also { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.also .mini-title { margin: 0; }
+@media (max-width: 960px) { .course-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .course-grid { grid-template-columns: 1fr; } }
+
+/* ============ Investigación ============ */
+.research { background: var(--green); color: var(--on-green); --rl: color-mix(in srgb, currentColor 22%, transparent); }
+[data-theme="dark"] .research { background: #18241f; color: var(--ink); }
+.research .eyebrow { color: var(--ochre); }
+.research .section-head h2 em { color: var(--ochre); }
+.research .section-head p { color: color-mix(in srgb, currentColor 75%, transparent); }
+.rfilters { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 26px; }
+.rfilter { padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--rl); background: transparent; color: inherit; font: 600 13.5px var(--sans); cursor: pointer; transition: all .2s; }
+.rfilter:hover { border-color: currentColor; }
+.rfilter[aria-pressed="true"] { background: var(--ochre); border-color: var(--ochre); color: #1b2420; }
+.pubs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rl); }
+.pub { display: grid; grid-template-columns: 84px 1fr auto; gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--rl); transition: padding .3s; }
+.pub[hidden] { display: none; }
+.pub:hover { padding-left: 10px; }
+.pub-year { font: italic 600 32px var(--serif); color: var(--ochre); }
+.pub-tag { font: 500 11.5px var(--mono); text-transform: uppercase; letter-spacing: .12em; opacity: .7; }
+.pub h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 500; margin: 5px 0 5px; }
+.pub p { margin: 0; opacity: .78; font-size: 14.5px; }
+.pub p i { font-style: italic; }
+.pub-go { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid var(--rl); display: grid; place-items: center; text-decoration: none; transition: all .25s; flex: none; }
+.pub-go:hover { background: var(--ochre); border-color: var(--ochre); color: #1b2420; transform: rotate(-45deg); }
+.pub-go.off { visibility: hidden; }
+.talks { margin-top: 54px; display: grid; grid-template-columns: 220px 1fr; gap: 28px; }
+.talks h3 { font-size: 24px; }
+.talks ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.talks li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; font-size: 15px; }
+.talks li > span:first-child { font: 500 13px var(--mono); color: var(--ochre); padding-top: 2px; }
+.talks li b { font-weight: 600; display: block; }
+.talks li small { opacity: .72; font-size: 14px; }
+.research-foot { margin-top: 44px; display: flex; gap: 12px; flex-wrap: wrap; }
+.research .btn-outline { border-color: currentColor; color: inherit; }
+.research .btn-outline:hover { background: var(--ochre); border-color: var(--ochre); color: #1b2420; }
+@media (max-width: 700px) { .pub { grid-template-columns: 1fr auto; gap: 14px; } .pub-year { grid-column: 1 / -1; font-size: 22px; margin-bottom: -10px; } .talks { grid-template-columns: 1fr; } }
+
+/* ============ Contacto ============ */
+.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+.contact-info h2 { font-size: clamp(36px, 5vw, 58px); margin-bottom: 20px; }
+.contact-info h2 em { color: var(--terra); font-style: italic; }
+.contact-info > p { color: var(--ink-2); font-size: 18px; margin: 0 0 30px; }
+.contact-list { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; }
+.contact-list a, .contact-list div { display: flex; align-items: center; gap: 14px; text-decoration: none; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); transition: border-color .2s; }
+.contact-list a:hover { border-color: var(--green); }
+.contact-list .ci { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-2); color: var(--green); flex: none; }
+.contact-list small { display: block; font: 500 11.5px var(--mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .1em; }
+.copy-btn { margin-left: auto; background: none; border: 0; color: var(--ink-3); cursor: pointer; font-size: 15px; padding: 6px; }
+.copy-btn:hover { color: var(--terra); }
+.form { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow); }
+.form h3 { font-size: 24px; margin-bottom: 20px; }
+.form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form label { display: block; margin-bottom: 14px; }
+.form label > span { display: block; font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); margin-bottom: 6px; }
+.form input, .form textarea { width: 100%; padding: 13px 15px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); font: 400 16px var(--sans); transition: border-color .2s; }
+.form input:focus, .form textarea:focus { outline: none; border-color: var(--green); }
+.form-msg { min-height: 24px; margin: 12px 0 0; font-size: 14.5px; color: var(--green); }
+.form-msg.err { color: var(--terra); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } .form .row { grid-template-columns: 1fr; } }
+
+/* ============ Footer ============ */
+.footer { border-top: 1px solid var(--line); padding: 30px 0; }
+.footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--ink-3); font-size: 14px; }
+.footer code { font-family: var(--mono); font-size: 12.5px; }
+
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 140%); background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 999px; font-size: 14.5px; z-index: 100; transition: transform .35s ease, visibility .35s; visibility: hidden; }
+.toast.show { transform: translate(-50%, 0); visibility: visible; }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- =====================================================================
+     CÓMO EDITAR: cada texto aparece dos veces, con lang="es" y lang="en".
+     Cambia ambos para que el sitio quede igual en los dos idiomas.
+     ===================================================================== -->
+
+<!-- ================= Header ================= -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="Inicio">
+      <span class="logo-mark">CY</span>
+      <span class="logo-text">Carlos Yanes<small lang="es">Econometría · Datos</small><small lang="en">Econometrics · Data</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#sobre-mi"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
+      <a href="#trayectoria"><span lang="es">Trayectoria</span><span lang="en">Career</span></a>
+      <a href="#consultoria"><span lang="es">Consultoría</span><span lang="en">Consulting</span></a>
+      <a href="#cursos"><span lang="es">Cursos</span><span lang="en">Teaching</span></a>
+      <a href="#investigacion"><span lang="es">Investigación</span><span lang="en">Research</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      <a href="CV_Carlos_Yanes.pdf" class="nav-cv" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-down"></i> CV</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn lang-btn" id="lang-btn" type="button">EN</button>
+      <button class="icon-btn" id="theme-btn" type="button"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= Inicio ================= -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="hero-role"><span class="dot"><i class="fa-solid fa-building-columns"></i></span>
+        <span lang="es">Coordinador de la Maestría en Economía · Universidad del Norte</span>
+        <span lang="en">Director, M.Sc. in Economics · Universidad del Norte</span>
+      </div>
+      <p class="eyebrow">Econometrics &amp; Data Science</p>
+      <h1>Carlos <em>Yanes</em> Guerra</h1>
+      <p class="hero-value" lang="es">Economista y profesor. Uso la econometría y la ciencia de datos para convertir datos económicos en evidencia útil.</p>
+      <p class="hero-value" lang="en">Economist and professor. I use econometrics and data science to turn economic data into useful evidence.</p>
+      <p class="hero-lead" lang="es">Series de tiempo, evaluación de impacto y modelación económica con R, Python y Stata. Más de quince años enseñando en universidades colombianas y consultor para el sector público y privado.</p>
+      <p class="hero-lead" lang="en">Time series, impact evaluation and economic modelling with R, Python and Stata. Over fifteen years teaching at Colombian universities, and a consultant to the public and private sectors.</p>
+      <div class="hero-actions">
+        <a href="#investigacion" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> <span lang="es">Investigación</span><span lang="en">Research</span></a>
+        <a href="#cursos" class="btn btn-outline"><i class="fa-solid fa-chalkboard-user"></i> <span lang="es">Mis cursos</span><span lang="en">My courses</span></a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/carlos-andres-yanes-guerra-0026bb31/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/keynes37" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://orcid.org/0000-0003-0683-3727" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://twitter.com/keynes37" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <figure class="ts-card">
+      <div class="ts-top">
+        <div class="ts-photo">
+          <div class="avatar">CY<img src="Imagenes/Usercy.PNG" alt="Carlos Yanes" onerror="this.remove()"></div>
+          <div>
+            <strong lang="es">Del dato al pronóstico</strong><strong lang="en">From data to forecast</strong>
+            <small lang="es">Pasa el cursor sobre la serie</small><small lang="en">Hover over the series</small>
+          </div>
+        </div>
+        <span class="ts-badge">ARIMA(1,1,0)</span>
+      </div>
+      <div class="ts-canvas-wrap" id="ts-wrap">
+        <canvas id="ts-canvas" role="img"></canvas>
+        <div class="ts-readout" id="ts-readout" aria-live="polite"></div>
+      </div>
+      <figcaption class="ts-foot">
+        <div class="ts-legend">
+          <span><i style="background:var(--green)"></i><span lang="es">Observado</span><span lang="en">Observed</span></span>
+          <span><i style="background:var(--terra)"></i><span lang="es">Pronóstico</span><span lang="en">Forecast</span></span>
+          <span><i class="band" style="background:var(--terra)"></i><span lang="es">IC 95 %</span><span lang="en">95% CI</span></span>
+        </div>
+        <button class="ts-btn" id="ts-new" type="button"><i class="fa-solid fa-shuffle"></i> <span lang="es">Nueva simulación</span><span lang="en">New simulation</span></button>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Cifras -->
+<div class="stats">
+  <div class="wrap stats-grid reveal">
+    <div class="stat"><strong><span data-count="15">15</span><sup>+</sup></strong><span lang="es">años de docencia universitaria</span><span lang="en">years teaching at university</span></div>
+    <div class="stat"><strong data-count="7">7</strong><span lang="es">artículos publicados</span><span lang="en">published articles</span></div>
+    <div class="stat"><strong data-count="5">5</strong><span lang="es">universidades donde he enseñado</span><span lang="en">universities where I've taught</span></div>
+    <div class="stat"><strong data-count="4">4</strong><span lang="es">consultorías recientes</span><span lang="en">recent consulting projects</span></div>
+  </div>
+</div>
+
+<!-- ================= Sobre mí ================= -->
+<section class="section" id="sobre-mi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span lang="es">Sobre mí</span><span lang="en">About me</span></p>
+      <h2 lang="es">Preguntas económicas complejas, <em>respuestas con datos</em></h2>
+      <h2 lang="en">Complex economic questions, <em>answered with data</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="big" lang="es">Soy economista y magíster en Economía de la Universidad de los Andes, con énfasis en métodos cuantitativos.</p>
+        <p class="big" lang="en">I'm an economist with an M.Sc. in Economics from Universidad de los Andes, with a focus on quantitative methods.</p>
+        <p lang="es">Coordino la Maestría en Economía de la Universidad del Norte, donde enseño econometría y dirijo el Observatorio de Condiciones Socioeconómicas (OCSA). Mi trabajo combina series de tiempo, evaluación de impacto de programas sociales y modelación de datos complejos.</p>
+        <p lang="en">I direct the M.Sc. in Economics at Universidad del Norte, where I teach econometrics and lead the Observatory of Socioeconomic Conditions (OCSA). My work combines time series, impact evaluation of social programmes and modelling of complex data.</p>
+        <p lang="es">Fuera del aula asesoro a gremios, fundaciones y empresas en indicadores económicos, competitividad regional y evaluación de proyectos. Soy evaluador habitual de revistas como <em>Clío América</em>, <em>Tiempo &amp; Economía</em> y la <em>Revista Facultad de Ciencias Económicas</em>.</p>
+        <p lang="en">Beyond the classroom I advise business associations, foundations and firms on economic indicators, regional competitiveness and project evaluation. I regularly review for journals such as <em>Clío América</em>, <em>Tiempo &amp; Economía</em> and <em>Revista Facultad de Ciencias Económicas</em>.</p>
+      </div>
+      <div class="areas reveal">
+        <div class="area"><span class="area-icon"><i class="fa-solid fa-wave-square"></i></span><div>
+          <h3 lang="es">Series de tiempo</h3><h3 lang="en">Time series</h3>
+          <p lang="es">Dinámica de precios, índices de seguimiento económico y factores dinámicos.</p><p lang="en">Price dynamics, economic tracking indices and dynamic factor models.</p></div></div>
+        <div class="area"><span class="area-icon"><i class="fa-solid fa-scale-balanced"></i></span><div>
+          <h3 lang="es">Evaluación de impacto</h3><h3 lang="en">Impact evaluation</h3>
+          <p lang="es">Programas sociales, proyectos productivos y reformas como la laboral de 2002.</p><p lang="en">Social programmes, productive projects and reforms such as Colombia's 2002 labour reform.</p></div></div>
+        <div class="area"><span class="area-icon"><i class="fa-solid fa-brain"></i></span><div>
+          <h3 lang="es">Ciencia de datos</h3><h3 lang="en">Data science</h3>
+          <p lang="es">Machine learning, redes neuronales y NLP aplicados a la economía.</p><p lang="en">Machine learning, neural networks and NLP applied to economics.</p></div></div>
+        <div class="area"><span class="area-icon"><i class="fa-solid fa-map-location-dot"></i></span><div>
+          <h3 lang="es">Economía regional</h3><h3 lang="en">Regional economics</h3>
+          <p lang="es">Competitividad, dinámica empresarial e inversión en el Caribe colombiano.</p><p lang="en">Competitiveness, business dynamics and investment in Colombia's Caribbean region.</p></div></div>
+      </div>
+    </div>
+    <div class="tools-row reveal">
+      <div><h3 class="mini-title"><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3>
+        <ul class="chips"><li class="main">R</li><li class="main">Python</li><li>SQL</li><li>LaTeX</li><li>Git</li><li>GCP</li></ul></div>
+      <div><h3 class="mini-title"><span lang="es">Software estadístico</span><span lang="en">Statistical software</span></h3>
+        <ul class="chips"><li class="main">Stata</li><li>EViews</li><li>SAS</li><li>SPSS</li><li>Matlab</li><li>Limdep</li><li>Gretl</li></ul></div>
+      <div><h3 class="mini-title"><span lang="es">Librerías</span><span lang="en">Libraries</span></h3>
+        <ul class="chips"><li>tidyverse</li><li>plm</li><li>stargazer</li><li>pandas</li><li>Plotly</li><li>Keras</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Trayectoria ================= -->
+<section class="section journey" id="trayectoria">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span lang="es">Trayectoria</span><span lang="en">Career</span></p>
+      <h2 lang="es">De Cartagena a <em>Barranquilla</em>, pasando por Bogotá</h2>
+      <h2 lang="en">From Cartagena to <em>Barranquilla</em>, by way of Bogotá</h2>
+    </div>
+    <div class="tl-grid">
+      <div class="tl-col reveal">
+        <h3><i class="fa-solid fa-briefcase"></i> <span lang="es">Experiencia</span><span lang="en">Experience</span></h3>
+        <ol class="timeline">
+          <li class="now">
+            <span class="tl-date"><span lang="es">2019 – hoy</span><span lang="en">2019 – present</span></span>
+            <h4>Universidad del Norte</h4>
+            <p class="org">Barranquilla</p>
+            <ul class="roles">
+              <li lang="es">Coordinador de la Maestría en Economía</li><li lang="en">Director, M.Sc. in Economics</li>
+              <li lang="es">Profesor Asistente</li><li lang="en">Assistant Professor</li>
+              <li lang="es">Director del Observatorio OCSA</li><li lang="en">Director, OCSA Observatory</li>
+            </ul>
+            <p class="note" lang="es">Análisis econométricos para la evaluación de impacto de programas sociales; asesor de tesis cuantitativas.</p>
+            <p class="note" lang="en">Econometric analysis for the impact evaluation of social programmes; adviser on quantitative theses.</p>
+          </li>
+          <li>
+            <span class="tl-date">2015 – 2018</span>
+            <h4 lang="es">Profesor Asociado</h4><h4 lang="en">Associate Professor</h4>
+            <p class="org">Universidad El Bosque · Bogotá</p>
+            <p class="note" lang="es">Investigador principal en responsabilidad social empresarial con modelos matemáticos para la toma de decisiones.</p>
+            <p class="note" lang="en">Principal investigator on corporate social responsibility using mathematical decision models.</p>
+          </li>
+          <li>
+            <span class="tl-date">2010 – 2018</span>
+            <h4 lang="es">Profesor Asistente</h4><h4 lang="en">Assistant Professor</h4>
+            <p class="org">Universidad Militar Nueva Granada · Bogotá</p>
+            <p class="note" lang="es">Dirección de trabajos de grado en econometría, simulación de modelos y teoría de juegos.</p>
+            <p class="note" lang="en">Supervised theses in econometrics, model simulation and game theory.</p>
+          </li>
+          <li>
+            <span class="tl-date">2011 – 2014</span>
+            <h4 lang="es">Profesor Asistente</h4><h4 lang="en">Assistant Professor</h4>
+            <p class="org">Universidad Católica de Colombia · Bogotá</p>
+            <p class="note" lang="es">Microeconomía III y Econometría I para el pregrado en Economía.</p>
+            <p class="note" lang="en">Taught Microeconomics III and Econometrics I to economics undergraduates.</p>
+          </li>
+          <li>
+            <span class="tl-date">2011 – 2013</span>
+            <h4 lang="es">Asistente graduado de investigación y profesor de cátedra</h4><h4 lang="en">Graduate research assistant and lecturer</h4>
+            <p class="org">Universidad de los Andes · Bogotá</p>
+          </li>
+        </ol>
+      </div>
+      <div class="tl-col reveal">
+        <h3><i class="fa-solid fa-graduation-cap"></i> <span lang="es">Formación</span><span lang="en">Education</span></h3>
+        <ol class="timeline">
+          <li>
+            <span class="tl-date">2011 – 2013</span>
+            <h4 lang="es">Maestría (M.Sc.) en Economía</h4><h4 lang="en">M.Sc. in Economics</h4>
+            <p class="org">Universidad de los Andes</p>
+            <p class="note" lang="es">Énfasis en métodos cuantitativos. Tesis sobre el efecto de la Ley 789 de 2002 en el sector industrial.</p>
+            <p class="note" lang="en">Quantitative methods track. Thesis on the effect of Law 789 of 2002 on the industrial sector.</p>
+          </li>
+          <li>
+            <span class="tl-date">2006 – 2007</span>
+            <h4 lang="es">Especialización en Cooperación Internacional</h4><h4 lang="en">Specialization in International Cooperation</h4>
+            <p class="org">Universidad de San Buenaventura &amp; Università di Pavia</p>
+          </li>
+          <li>
+            <span class="tl-date">2000 – 2005</span>
+            <h4 lang="es">Economista</h4><h4 lang="en">B.A. in Economics</h4>
+            <p class="org">Universidad de Cartagena</p>
+          </li>
+        </ol>
+        <div class="extra">
+          <h3 class="mini-title"><span lang="es">Formación complementaria</span><span lang="en">Further training</span></h3>
+          <ul>
+            <li><span class="y">2021</span><span><b>Data Science for All (DS4A)</b><span lang="es">MinTIC y Correlation One · desempeño sobresaliente</span><span lang="en">MinTIC &amp; Correlation One · outstanding performance</span></span></li>
+            <li><span class="y">2017–20</span><span><b lang="es">Análisis conductual en políticas públicas</b><b lang="en">Behavioural analysis in public policy</b><span lang="es">Diplomado</span><span lang="en">Diploma course</span></span></li>
+            <li><span class="y">2017–20</span><span><b lang="es">Curso Avanzado de Economía</b><b lang="en">Advanced Economics Course</b>Banco de la República</span></li>
+            <li><span class="y">2017–20</span><span><b>SAP Train the Trainers (TERP10)</b>SAP University Alliance</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Consultoría ================= -->
+<section class="section" id="consultoria">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span lang="es">Consultoría</span><span lang="en">Consulting</span></p>
+      <h2 lang="es">La econometría <em>fuera del aula</em></h2>
+      <h2 lang="en">Econometrics <em>beyond the classroom</em></h2>
+      <p lang="es">Indicadores, evaluación de impacto y análisis financiero para organizaciones públicas y privadas.</p>
+      <p lang="en">Indicators, impact evaluation and financial analysis for public and private organisations.</p>
+    </div>
+    <div class="consult-grid">
+      <article class="consult reveal">
+        <span class="yr">2025</span><span class="ic"><i class="fa-solid fa-store"></i></span>
+        <span class="client">Cámara de Comercio de Barranquilla</span>
+        <h3 lang="es">Consultor económico regional</h3><h3 lang="en">Regional economic consultant</h3>
+        <p lang="es">Indicadores económicos y sistemas de seguimiento sobre competitividad regional y dinámica empresarial.</p>
+        <p lang="en">Economic indicators and tracking systems on regional competitiveness and business dynamics.</p>
+      </article>
+      <article class="consult reveal">
+        <span class="yr">2024</span><span class="ic"><i class="fa-solid fa-seedling"></i></span>
+        <span class="client">Fundación Grupo Argos · Crecer en Paz</span>
+        <h3 lang="es">Evaluación de impacto socioproductivo</h3><h3 lang="en">Socio-productive impact evaluation</h3>
+        <p lang="es">Coinvestigador. Triangulación econométrica de proyectos productivos en El Carmen de Bolívar y Ovejas.</p>
+        <p lang="en">Co-investigator. Econometric triangulation of productive projects in El Carmen de Bolívar and Ovejas.</p>
+      </article>
+      <article class="consult reveal">
+        <span class="yr">2023</span><span class="ic"><i class="fa-solid fa-bolt"></i></span>
+        <span class="client">Isagen</span>
+        <h3 lang="es">Consultor financiero</h3><h3 lang="en">Financial consultant</h3>
+        <p lang="es">Evaluación de impacto en el sector energético y verificación de cumplimiento regulatorio.</p>
+        <p lang="en">Impact evaluation in the energy sector and regulatory compliance review.</p>
+      </article>
+      <article class="consult reveal">
+        <span class="yr">2022</span><span class="ic"><i class="fa-solid fa-tractor"></i></span>
+        <span class="client">CESI · Universidad del Norte</span>
+        <h3 lang="es">Evaluador técnico de proyectos</h3><h3 lang="en">Technical project evaluator</h3>
+        <p lang="es">Programas de innovación agroindustrial en el Atlántico y matrices de evaluación para sus actores.</p>
+        <p lang="en">Agro-industrial innovation programmes in Atlántico and evaluation frameworks for stakeholders.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Cursos ================= -->
+<section class="section journey" id="cursos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span lang="es">Docencia</span><span lang="en">Teaching</span></p>
+      <h2 lang="es">Cursos con <em>material abierto</em></h2>
+      <h2 lang="en">Courses with <em>open materials</em></h2>
+      <p lang="es">Presentaciones, código y lecturas de cada curso, desde la introducción a la economía hasta la evaluación de impacto.</p>
+      <p lang="en">Slides, code and readings for each course, from introductory economics to impact evaluation. Materials are in Spanish.</p>
+    </div>
+    <div class="filters reveal" role="group">
+      <button class="filter" type="button" data-f="all" aria-pressed="true"><span lang="es">Todos</span><span lang="en">All</span> <span class="n">9</span></button>
+      <button class="filter" type="button" data-f="pre" aria-pressed="false"><span lang="es">Pregrado</span><span lang="en">Undergraduate</span> <span class="n">4</span></button>
+      <button class="filter" type="button" data-f="ma" aria-pressed="false"><span lang="es">Maestría</span><span lang="en">Master's</span> <span class="n">5</span></button>
+    </div>
+    <div class="course-grid">
+      <article class="course reveal" data-level="pre">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-money-bill-trend-up"></i></span><span class="level"><span lang="es">Pregrado</span><span lang="en">Undergrad</span></span></div>
+        <h3 lang="es">Introducción a la Economía</h3><h3 lang="en">Introduction to Economics</h3>
+        <p lang="es">Para quienes apenas inician la carrera. Incluye las presentaciones de clase.</p>
+        <p lang="en">For students just starting the degree. Includes the lecture slides.</p>
+        <span class="program"><span lang="es">Primeros semestres</span><span lang="en">First year</span></span>
+        <a class="more" href="/ieconomia"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="pre">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-chart-line"></i></span><span class="level"><span lang="es">Pregrado</span><span lang="en">Undergrad</span></span></div>
+        <h3 lang="es">Econometría I</h3><h3 lang="en">Econometrics I</h3>
+        <p lang="es">Regresión y análisis estadístico: la base para hacer preguntas causales con datos.</p>
+        <p lang="en">Regression and statistical analysis: the foundation for asking causal questions with data.</p>
+        <span class="program"><span lang="es">V semestre · Economía</span><span lang="en">5th semester · Economics</span></span>
+        <a class="more" href="/econometriai"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="pre">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-wave-square"></i></span><span class="level"><span lang="es">Pregrado</span><span lang="en">Undergrad</span></span></div>
+        <h3 lang="es">Econometría II</h3><h3 lang="en">Econometrics II</h3>
+        <p lang="es">Curso intermedio de series de tiempo y predicción.</p>
+        <p lang="en">Intermediate course on time series and forecasting.</p>
+        <span class="program"><span lang="es">VI semestre · Economía</span><span lang="en">6th semester · Economics</span></span>
+        <a class="more" href="/series"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="pre">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-chart-simple"></i></span><span class="level"><span lang="es">Pregrado</span><span lang="en">Undergrad</span></span></div>
+        <h3 lang="es">Macroeconomía</h3><h3 lang="en">Macroeconomics</h3>
+        <p lang="es">Indicadores macroeconómicos para estudiantes de todas las carreras.</p>
+        <p lang="en">Macroeconomic indicators for students of every programme.</p>
+        <span class="program"><span lang="es">Nivel principiante</span><span lang="en">Introductory</span></span>
+        <a class="more" href="/macroeconomia"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="ma">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-user-doctor"></i></span><span class="level ma"><span lang="es">Maestría</span><span lang="en">Master's</span></span></div>
+        <h3 lang="es">Economía de la Salud</h3><h3 lang="en">Health Economics</h3>
+        <p lang="es">Herramientas económicas pensadas para profesionales de la salud.</p>
+        <p lang="en">Economic tools designed for health professionals.</p>
+        <span class="program"><span lang="es">Posgrado</span><span lang="en">Graduate</span></span>
+        <a class="more" href="/health"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="ma">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-hand-holding-dollar"></i></span><span class="level ma"><span lang="es">Maestría</span><span lang="en">Master's</span></span></div>
+        <h3 lang="es">Analítica de Precios</h3><h3 lang="en">Pricing Analytics</h3>
+        <p lang="es">Programación aplicada y segmentación para decisiones de precio.</p>
+        <p lang="en">Applied programming and segmentation for pricing decisions.</p>
+        <span class="program"><span lang="es">Maestría en Marketing · Uninorte</span><span lang="en">M.Sc. Marketing · Uninorte</span></span>
+        <a class="more" href="#" data-soon><span lang="es">Próximamente</span><span lang="en">Coming soon</span> <i class="fa-solid fa-clock"></i></a>
+      </article>
+      <article class="course reveal" data-level="ma">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-newspaper"></i></span><span class="level ma"><span lang="es">Maestría</span><span lang="en">Master's</span></span></div>
+        <h3 lang="es">Periodismo de Datos</h3><h3 lang="en">Data Journalism</h3>
+        <p lang="es">Formación en datos para comunicadores: encontrar, analizar y contar.</p>
+        <p lang="en">Data skills for journalists: find, analyse and tell the story.</p>
+        <span class="program"><span lang="es">Maestría en Periodismo · Uninorte</span><span lang="en">M.A. Journalism · Uninorte</span></span>
+        <a class="more" href="/periodismo"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="ma">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-bullseye"></i></span><span class="level ma"><span lang="es">Maestría</span><span lang="en">Master's</span></span></div>
+        <h3 lang="es">Evaluación de Impacto</h3><h3 lang="en">Impact Evaluation</h3>
+        <p lang="es">Métodos para medir el efecto de programas y políticas, a nivel avanzado.</p>
+        <p lang="en">Advanced methods for measuring the effect of programmes and policies.</p>
+        <span class="program"><span lang="es">Maestría en Economía · Uninorte</span><span lang="en">M.Sc. Economics · Uninorte</span></span>
+        <a class="more" href="/mastere"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="course reveal" data-level="ma">
+        <div class="course-top"><span class="course-icon"><i class="fa-solid fa-infinity"></i></span><span class="level ma"><span lang="es">Maestría</span><span lang="en">Master's</span></span></div>
+        <h3 lang="es">Economía Matemática</h3><h3 lang="en">Mathematical Economics</h3>
+        <p lang="es">El lenguaje matemático de la economía, con aplicaciones en Python.</p>
+        <p lang="en">The mathematical language of economics, with applications in Python.</p>
+        <span class="program"><span lang="es">Maestría en Economía · Uninorte</span><span lang="en">M.Sc. Economics · Uninorte</span></span>
+        <a class="more" href="/ecomat"><span lang="es">Ver material</span><span lang="en">View materials</span> <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+    <div class="also reveal">
+      <h3 class="mini-title"><span lang="es">También enseño</span><span lang="en">I also teach</span></h3>
+      <ul class="chips">
+        <li><span lang="es">Econometría Avanzada</span><span lang="en">Advanced Econometrics</span></li>
+        <li><span lang="es">Evaluación de Proyectos</span><span lang="en">Project Evaluation</span></li>
+        <li><span lang="es">Microeconomía</span><span lang="en">Microeconomics</span></li>
+        <li><span lang="es">Teoría de Juegos</span><span lang="en">Game Theory</span></li>
+        <li><span lang="es">Economía Regional</span><span lang="en">Regional Economics</span></li>
+        <li><span lang="es">Modelos Matemáticos</span><span lang="en">Mathematical Models</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Investigación ================= -->
+<section class="section research" id="investigacion">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span lang="es">Investigación</span><span lang="en">Research</span></p>
+      <h2 lang="es">Publicaciones</h2><h2 lang="en">Publications</h2>
+      <p lang="es">Sector lácteo, finanzas, mercado laboral y economía regional en Colombia y América Latina.</p>
+      <p lang="en">Dairy markets, finance, labour markets and regional economics in Colombia and Latin America.</p>
+    </div>
+    <div class="rfilters reveal" role="group">
+      <button class="rfilter" type="button" data-t="all" aria-pressed="true"><span lang="es">Todas</span><span lang="en">All</span> · 7</button>
+      <button class="rfilter" type="button" data-t="agro" aria-pressed="false"><span lang="es">Sector lácteo</span><span lang="en">Dairy sector</span> · 2</button>
+      <button class="rfilter" type="button" data-t="fin" aria-pressed="false"><span lang="es">Finanzas</span><span lang="en">Finance</span> · 2</button>
+      <button class="rfilter" type="button" data-t="reg" aria-pressed="false"><span lang="es">Regional e inversión</span><span lang="en">Regional &amp; investment</span> · 2</button>
+      <button class="rfilter" type="button" data-t="lab" aria-pressed="false"><span lang="es">Mercado laboral</span><span lang="en">Labour market</span> · 1</button>
+    </div>
+    <!-- Para agregar una publicación: copia un <li class="pub"> y cambia año, tema (data-t), título, autores y enlace -->
+    <ol class="pubs reveal">
+      <li class="pub" data-t="reg">
+        <span class="pub-year">2025</span>
+        <div><span class="pub-tag"><span lang="es">Inversión · Gobernanza</span><span lang="en">Investment · Governance</span></span>
+          <h3>Governance as a determinant of FDI: A gravity model for Latin America</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> J. Lombana-Coy &amp; M. Cuenca · <i>Revista Lasallista de Investigación</i></p></div>
+        <a class="pub-go off" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="agro">
+        <span class="pub-year">2025</span>
+        <div><span class="pub-tag"><span lang="es">Sector lácteo · Regulación</span><span lang="en">Dairy · Regulation</span></span>
+          <h3>Efectos de la política de regulación del sector lácteo en Colombia en la calidad de la leche cruda como insumo industrial</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> S. De la Cruz &amp; J. C. Pérez · <i>Revista Facultad de Ciencias Económicas</i>, 33(2), 137–145</p></div>
+        <a class="pub-go off" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="fin">
+        <span class="pub-year">2021</span>
+        <div><span class="pub-tag"><span lang="es">Finanzas · Innovación</span><span lang="en">Finance · Innovation</span></span>
+          <h3>Financial system specialization and private research and development expenditure</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> E. A. Méndez-Morales · <i>Journal of Economics, Finance and Administrative Science</i></p></div>
+        <a class="pub-go" href="https://www.emerald.com/insight/content/doi/10.1108/JEFAS-10-2019-0256/full/html" target="_blank" rel="noopener" aria-label="Leer artículo"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="agro">
+        <span class="pub-year">2021</span>
+        <div><span class="pub-tag"><span lang="es">Sector lácteo · Series de tiempo</span><span lang="en">Dairy · Time series</span></span>
+          <h3>Dinámica del precio de la leche en las regiones de Colombia: un análisis de series de tiempo</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> S. A. de la Cruz · <i>Clío América</i></p></div>
+        <a class="pub-go" href="https://dialnet.unirioja.es/servlet/articulo?codigo=8601081" target="_blank" rel="noopener" aria-label="Leer artículo"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="lab">
+        <span class="pub-year">2018</span>
+        <div><span class="pub-tag"><span lang="es">Mercado laboral · Evaluación de políticas</span><span lang="en">Labour · Policy evaluation</span></span>
+          <h3>La reforma laboral de 2002 y la dinámica del empleo industrial en Colombia</h3>
+          <p><i>Economía &amp; Región</i></p></div>
+        <a class="pub-go" href="https://revistas.utb.edu.co/economiayregion/article/view/185" target="_blank" rel="noopener" aria-label="Leer artículo"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="fin">
+        <span class="pub-year">2014</span>
+        <div><span class="pub-tag"><span lang="es">Finanzas · Crédito</span><span lang="en">Finance · Credit</span></span>
+          <h3>La influencia de los determinantes macroeconómicos en la cartera comercial de crédito de consumo en Colombia</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> J. P. Villamil &amp; C. G. Rojas · <i>Revista Estudiantes Fac. Cienc. Econ.</i></p></div>
+        <a class="pub-go off" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+      <li class="pub" data-t="reg">
+        <span class="pub-year">2014</span>
+        <div><span class="pub-tag"><span lang="es">Economía regional · Gasto público</span><span lang="en">Regional · Public spending</span></span>
+          <h3>Impacto del gasto público en la dinámica económica regional</h3>
+          <p><span lang="es">Con</span><span lang="en">With</span> H. Mendoza · <i>Revista Finanzas y Política Económica</i></p></div>
+        <a class="pub-go off" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-arrow-right"></i></a>
+      </li>
+    </ol>
+
+    <div class="talks reveal">
+      <h3><span lang="es">Ponencias</span><span lang="en">Talks</span></h3>
+      <ul>
+        <li><span>2025</span><span><b>El Barómetro de Cartagena: <span lang="es">índice de seguimiento de la economía a partir de factores dinámicos</span><span lang="en">a dynamic-factor tracking index for the local economy</span></b><small>XVII Congreso de Ciencia Regional (ASCER) · Universidad de Medellín</small></span></li>
+        <li><span>2022</span><span><b lang="es">Transición energética en América Latina</b><b lang="en">Energy transition in Latin America</b><small>8.º ELAEE · Universidad Jorge Tadeo Lozano</small></span></li>
+        <li><span>2018</span><span><b lang="es">Investigación sobre sistemas financieros</b><b lang="en">Research on financial systems</b><small lang="es">11.ª Conferencia Internacional RAIS en Ciencias Sociales</small><small lang="en">11th RAIS International Conference on Social Sciences</small></span></li>
+      </ul>
+    </div>
+
+    <div class="research-foot reveal">
+      <a href="https://orcid.org/0000-0003-0683-3727" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-orcid"></i> <span lang="es">Perfil ORCID</span><span lang="en">ORCID profile</span></a>
+      <a href="CV_Carlos_Yanes.pdf" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> <span lang="es">CV completo</span><span lang="en">Full CV</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Contacto ================= -->
+<section class="section" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <p class="eyebrow"><span lang="es">Contacto</span><span lang="en">Contact</span></p>
+      <h2 lang="es">¿Hablamos de <em>datos</em>?</h2><h2 lang="en">Let's talk <em>data</em></h2>
+      <p lang="es">Estudiantes, colegas o instituciones: escríbeme sobre la maestría, investigación o consultoría.</p>
+      <p lang="en">Students, colleagues or institutions: get in touch about the master's programme, research or consulting.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:cayanes@uninorte.edu.co"><span class="ci"><i class="fa-solid fa-envelope"></i></span><span><small lang="es">Correo</small><small lang="en">Email</small>cayanes@uninorte.edu.co</span><button class="copy-btn" type="button" data-copy="cayanes@uninorte.edu.co" aria-label="Copiar"><i class="fa-regular fa-copy"></i></button></a></li>
+        <li><a href="tel:+576053509509,4594"><span class="ci"><i class="fa-solid fa-phone"></i></span><span><small lang="es">Teléfono</small><small lang="en">Phone</small>+57 (605) 350 9509 · Ext. 4594</span></a></li>
+        <li><div><span class="ci"><i class="fa-solid fa-location-dot"></i></span><span><small lang="es">Oficina</small><small lang="en">Office</small>Universidad del Norte · Barranquilla, Colombia</span></div></li>
+      </ul>
+      <a href="CV_Carlos_Yanes.pdf" download class="btn btn-terra"><i class="fa-solid fa-file-arrow-down"></i> <span lang="es">Descargar CV</span><span lang="en">Download CV</span></a>
+    </div>
+    <form class="form reveal" id="contact-form" novalidate>
+      <h3 lang="es">Envíame un mensaje</h3><h3 lang="en">Send me a message</h3>
+      <div class="row">
+        <label><span><span lang="es">Nombre</span><span lang="en">Name</span></span><input type="text" name="Name" autocomplete="name" required></label>
+        <label><span><span lang="es">Correo</span><span lang="en">Email</span></span><input type="email" name="Email" autocomplete="email" required></label>
+      </div>
+      <label><span><span lang="es">Mensaje</span><span lang="en">Message</span></span><textarea name="Message" rows="5" required></textarea></label>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> <span lang="es">Enviar</span><span lang="en">Send</span></button>
+      <p class="form-msg" id="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Carlos Andrés Yanes Guerra</span>
+    <span><span lang="es">Hecho con HTML, CSS y JavaScript</span><span lang="en">Built with HTML, CSS and JavaScript</span> · <code>y<sub>t</sub> = φy<sub>t−1</sub> + ε<sub>t</sub></code></span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const isEN = () => document.documentElement.lang === 'en';
+  const L = (es, en) => isEN() ? en : es;   // textos generados por JavaScript
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toast = $('#toast'); let tt;
+  const say = m => { toast.textContent = m; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('show'), 2400); };
+
+  // ---------- Idioma ----------
+  const langBtn = $('#lang-btn'), themeBtn = $('#theme-btn'), menuBtn = $('#menu-btn'), nav = $('#nav');
+  function syncLabels() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    langBtn.textContent = isEN() ? 'ES' : 'EN';
+    langBtn.setAttribute('aria-label', L('Ver en inglés', 'View in Spanish'));
+    langBtn.title = L('English', 'Español');
+    themeBtn.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    themeBtn.setAttribute('aria-label', dark ? L('Cambiar a modo claro', 'Switch to light mode') : L('Cambiar a modo oscuro', 'Switch to dark mode'));
+    menuBtn.setAttribute('aria-label', nav.classList.contains('open') ? L('Cerrar menú', 'Close menu') : L('Abrir menú', 'Open menu'));
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#111613' : '#f4efe6';
+    document.title = L('Carlos Yanes Guerra | Econometría y Ciencia de Datos', 'Carlos Yanes Guerra | Econometrics & Data Science');
+    $('#ts-canvas').setAttribute('aria-label', L('Serie de tiempo simulada con su pronóstico e intervalo de confianza', 'Simulated time series with forecast and confidence interval'));
+  }
+  langBtn.addEventListener('click', () => {
+    const next = isEN() ? 'es' : 'en';
+    document.documentElement.lang = next;
+    try { localStorage.setItem('cy-lang', next); } catch (e) {}
+    syncLabels(); chart.draw();
+  });
+
+  // ---------- Tema ----------
+  themeBtn.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    if (dark) document.documentElement.dataset.theme = 'dark'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('cy-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    syncLabels(); chart.draw();
+  });
+
+  // ---------- Menú móvil ----------
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    syncLabels();
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // ---------- Header y enlace activo ----------
+  const header = $('#header');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 10);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const links = nav.querySelectorAll('a[href^="#"]');
+  const so = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach(s => so.observe(s));
+
+  // ---------- Aparición suave ----------
+  const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // ---------- Contadores ----------
+  const co = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count; co.unobserve(el);
+    if (reduceMotion) { el.textContent = target; return; }
+    const t0 = performance.now();
+    (function f(now) { const p = Math.min(1, (now - t0) / 1100); el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); })(t0);
+  }), { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => { if (!reduceMotion) el.textContent = '0'; co.observe(el); });
+
+  // ---------- Filtros (cursos y publicaciones) ----------
+  function filterGroup(btnSel, attr, itemSel, itemAttr) {
+    const btns = document.querySelectorAll(btnSel);
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.setAttribute('aria-pressed', x === b));
+      document.querySelectorAll(itemSel).forEach(it => { it.hidden = b.dataset[attr] !== 'all' && it.dataset[itemAttr] !== b.dataset[attr]; });
+    }));
+  }
+  filterGroup('.filter', 'f', '.course', 'level');
+  filterGroup('.rfilter', 't', '.pub', 't');
+  document.querySelectorAll('[data-soon]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); say(L('El material de este curso estará disponible pronto.', 'Materials for this course are coming soon.')); }));
+
+  // ---------- Copiar correo ----------
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    const done = () => say(L('Correo copiado', 'Email copied'));
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(done, () => say(b.dataset.copy)); else say(b.dataset.copy);
+  }));
+
+  // ---------- Formulario (envía a tu Google Sheet, como el sitio actual) ----------
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxKXf9pBipr47tU0jVNx59OjKAvq6LmU65xw1TzsBBbY5QVvo7YQsMi2JklqH1MuLsI/exec';
+  const form = $('#contact-form'), msg = $('#form-msg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { msg.className = 'form-msg err'; msg.textContent = L('Completa nombre, correo y mensaje.', 'Please fill in name, email and message.'); form.reportValidity(); return; }
+    const btn = form.querySelector('button'); btn.disabled = true;
+    msg.className = 'form-msg'; msg.textContent = L('Enviando…', 'Sending…');
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(() => { msg.textContent = L('¡Gracias! Tu mensaje fue enviado.', 'Thanks! Your message has been sent.'); form.reset(); })
+      .catch(() => { msg.className = 'form-msg err'; msg.textContent = L('No se pudo enviar. Escríbeme a cayanes@uninorte.edu.co.', 'Could not send. Please email cayanes@uninorte.edu.co.'); })
+      .finally(() => { btn.disabled = false; });
+  });
+
+  // ---------- Serie de tiempo interactiva ----------
+  const chart = (() => {
+    const canvas = $('#ts-canvas'), wrap = $('#ts-wrap'), readout = $('#ts-readout');
+    const ctx = canvas.getContext('2d');
+    const N_OBS = 64, H_FC = 16, START = 2008;
+    let data = [], fc = [], se = [], w = 0, h = 0, progress = 1, hover = -1, yMin, yMax;
+    const pad = { l: 8, r: 8, t: 40, b: 26 };
+    const randn = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+    function simulate() {   // ARIMA(1,1,0): Δy_t = μ + φ(Δy_{t-1} − μ) + ε_t
+      const mu = 0.5, phi = 0.55, sigma = 1.3;
+      let y = 100, d = mu; data = [y];
+      for (let t = 1; t < N_OBS; t++) { d = mu + phi * (d - mu) + sigma * randn(); y += d; data.push(y); }
+      fc = []; se = [];
+      let yf = y, df = d, varSum = 0, psi = 1, psiSum = 0;
+      for (let k = 1; k <= H_FC; k++) {
+        df = mu + phi * (df - mu); yf += df; fc.push(yf);
+        psiSum += psi; varSum += psiSum * psiSum; psi *= phi;
+        se.push(1.96 * sigma * Math.sqrt(varSum));
+      }
+    }
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = wrap.clientWidth; h = wrap.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      draw();
+    }
+    const total = () => N_OBS + H_FC;
+    const X = i => pad.l + i / (total() - 1) * (w - pad.l - pad.r);
+    const Y = v => pad.t + (1 - (v - yMin) / (yMax - yMin)) * (h - pad.t - pad.b);
+    const label = i => `${START + Math.floor(i / 4)}${L('T', 'Q')}${(i % 4) + 1}`;
+    function draw() {
+      if (!w) return;
+      const green = css('--green'), terra = css('--terra'), line = css('--line'), ink3 = css('--ink-3');
+      const lows = fc.map((v, k) => v - se[k]), highs = fc.map((v, k) => v + se[k]);
+      yMin = Math.min(...data, ...lows) - 2; yMax = Math.max(...data, ...highs) + 2;
+      ctx.clearRect(0, 0, w, h);
+      ctx.font = '500 11px "JetBrains Mono", monospace';
+      ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+      for (let g = 1; g <= 3; g++) { const yy = pad.t + g / 4 * (h - pad.t - pad.b); ctx.beginPath(); ctx.moveTo(pad.l, yy); ctx.lineTo(w - pad.r, yy); ctx.stroke(); }
+      ctx.setLineDash([]);
+      ctx.fillStyle = ink3;
+      for (let i = 0; i < total(); i += 16) { ctx.textAlign = i ? 'center' : 'left'; ctx.fillText(START + i / 4, X(i), h - 6); }
+      const shown = Math.max(2, Math.floor(progress * N_OBS));
+      ctx.strokeStyle = green; ctx.lineWidth = 2.4; ctx.lineJoin = 'round';
+      ctx.beginPath(); data.slice(0, shown).forEach((v, i) => i ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v))); ctx.stroke();
+      const grad = ctx.createLinearGradient(0, pad.t, 0, h - pad.b);
+      grad.addColorStop(0, green + '33'); grad.addColorStop(1, green + '00');
+      ctx.fillStyle = grad; ctx.beginPath(); ctx.moveTo(X(0), h - pad.b);
+      data.slice(0, shown).forEach((v, i) => ctx.lineTo(X(i), Y(v))); ctx.lineTo(X(shown - 1), h - pad.b); ctx.closePath(); ctx.fill();
+      if (progress >= 1) {
+        const o = N_OBS - 1;
+        ctx.strokeStyle = ink3; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(o), pad.t - 14); ctx.lineTo(X(o), h - pad.b); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = ink3; ctx.textAlign = 'left'; ctx.fillText(L('pronóstico →', 'forecast →'), X(o) + 6, pad.t - 4);
+        ctx.fillStyle = terra + '2e'; ctx.beginPath(); ctx.moveTo(X(o), Y(data[o]));
+        highs.forEach((v, k) => ctx.lineTo(X(o + k + 1), Y(v)));
+        for (let k = H_FC - 1; k >= 0; k--) ctx.lineTo(X(o + k + 1), Y(lows[k]));
+        ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = terra; ctx.lineWidth = 2.4; ctx.setLineDash([6, 5]);
+        ctx.beginPath(); ctx.moveTo(X(o), Y(data[o])); fc.forEach((v, k) => ctx.lineTo(X(o + k + 1), Y(v))); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = green; ctx.beginPath(); ctx.arc(X(o), Y(data[o]), 4.5, 0, 7); ctx.fill();
+      }
+      if (hover >= 0 && progress >= 1) {
+        const isFc = hover >= N_OBS, v = isFc ? fc[hover - N_OBS] : data[hover];
+        ctx.strokeStyle = css('--ink'); ctx.globalAlpha = .35; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(X(hover), pad.t - 14); ctx.lineTo(X(hover), h - pad.b); ctx.stroke(); ctx.globalAlpha = 1;
+        ctx.fillStyle = css('--card'); ctx.strokeStyle = isFc ? terra : green; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.arc(X(hover), Y(v), 5.5, 0, 7); ctx.fill(); ctx.stroke();
+        readout.innerHTML = isFc
+          ? `t = <b>${label(hover)}</b> · ŷ = <b>${v.toFixed(1)}</b> ± ${se[hover - N_OBS].toFixed(1)}`
+          : `t = <b>${label(hover)}</b> · y = <b>${v.toFixed(1)}</b>`;
+      } else {
+        const g = ((data[N_OBS - 1] / data[N_OBS - 5]) - 1) * 100;
+        readout.innerHTML = `${L('Última obs.', 'Last obs.')} <b>${label(N_OBS - 1)}</b> · ${L('var. anual', 'YoY')} <b>${g >= 0 ? '+' : ''}${g.toFixed(1)} %</b>`;
+      }
+    }
+    function animate() {
+      if (reduceMotion) { progress = 1; draw(); return; }
+      progress = 0; const t0 = performance.now();
+      (function f(now) { progress = Math.min(1, (now - t0) / 1600); draw(); if (progress < 1) requestAnimationFrame(f); })(t0);
+    }
+    wrap.addEventListener('pointermove', e => {
+      const r = canvas.getBoundingClientRect();
+      const i = Math.round((e.clientX - r.left - pad.l) / (w - pad.l - pad.r) * (total() - 1));
+      hover = Math.max(0, Math.min(total() - 1, i)); draw();
+    });
+    wrap.addEventListener('pointerleave', () => { hover = -1; draw(); });
+    $('#ts-new').addEventListener('click', () => { simulate(); animate(); });
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 120); });
+    simulate(); resize(); animate();
+    return { draw };
+  })();
+
+  syncLabels();
+})();
+</script>
+</body>
+</html>
