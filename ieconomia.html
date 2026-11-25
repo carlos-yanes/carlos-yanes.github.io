@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introducción a la Economía | Carlos Yanes</title>
+<meta name="description" content="Introducción a la Economía — curso de Carlos Yanes Guerra, Universidad del Norte. Un curso lleno de elementos para un primer entendimiento de la economía. Las presentaciones se publican al final de cada semana de clases.">
+<meta name="theme-color" content="#08111f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3d7a'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Verdana,sans-serif' font-weight='800' font-size='26' fill='%23f5b83d'%3ECY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script>
+  try {
+    if (localStorage.getItem('cy-theme') === 'light') document.documentElement.dataset.theme = 'light';
+    var l = localStorage.getItem('cy-lang') || ((navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+    document.documentElement.lang = l;
+  } catch (e) {}
+</script>
+<style>
+:root {
+  /* Azul oscuro (por defecto) */
+  --bg: #08111f; --bg-2: #0c1a2e; --card: rgba(16, 32, 56, .72); --card-solid: #10203a;
+  --ink: #e8eef8; --ink-2: #aebbd0; --ink-3: #7487a3; --line: rgba(120, 150, 190, .22);
+  --primary: #5b9dff; --primary-2: #82b4ff; --accent: #f5b83d; --gold: #f5b83d; --on-primary: #06101e;
+  --research-bg: #050c18;
+  --net-node: 130, 180, 255; --net-pulse: 245, 184, 61; --net-text: 150, 180, 225;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 36px rgba(0,0,0,.35);
+  --radius: 18px;
+  /* Fuentes: cambia aquí el nombre (y el enlace de Google Fonts en el <head>) */
+  --serif: 'Sora', system-ui, sans-serif; --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+[data-theme="light"] {
+  --bg: #f3f6fb; --bg-2: #e6edf7; --card: rgba(255, 255, 255, .82); --card-solid: #ffffff;
+  --ink: #0b1b33; --ink-2: #3c4e69; --ink-3: #6b7d97; --line: rgba(11, 27, 51, .13);
+  --primary: #0f3d7a; --primary-2: #1a5bb0; --accent: #c98a0c; --gold: #f5b83d; --on-primary: #ffffff;
+  --research-bg: #0b1f3d;
+  --net-node: 15, 61, 122; --net-pulse: 201, 138, 12; --net-text: 15, 61, 122;
+  --shadow: 0 1px 2px rgba(11,27,51,.06), 0 10px 30px rgba(11,27,51,.10);
+}
+
+html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+*, *::before, *::after { box-sizing: border-box; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16.5px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+#neural { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .75; }
+.glow { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(900px 600px at 85% -10%, rgba(91,157,255,.16), transparent 60%); }
+[data-theme="light"] .glow { background: radial-gradient(900px 600px at 85% -10%, rgba(15,61,122,.10), transparent 60%); }
+header, main, footer { position: relative; z-index: 1; }
+a { color: inherit; }
+.wrap { width: min(1040px, 100% - 40px); margin-inline: auto; }
+h1, h2, h3 { font-family: var(--serif); margin: 0; letter-spacing: -0.02em; line-height: 1.12; }
+
+/* Header */
+.header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 14px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-mark { width: 38px; height: 38px; border-radius: 11px; background: var(--primary); color: var(--on-primary); display: grid; place-items: center; font: 800 15px var(--serif); }
+.logo-text { font: 600 16px var(--serif); }
+.back { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 14.5px; color: var(--ink-2); padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); transition: all .2s; }
+.back:hover { color: var(--ink); border-color: var(--ink); }
+.tools { display: flex; align-items: center; gap: 8px; }
+.icon-btn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--card-solid); color: var(--ink); display: grid; place-items: center; cursor: pointer; font: 600 12.5px var(--mono); }
+.icon-btn:hover { border-color: var(--ink); }
+@media (max-width: 600px) { .logo-text, .back span { display: none; } }
+
+/* Portada del curso */
+.hero { padding: 64px 0 34px; }
+.crumbs { font: 500 12.5px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 18px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.crumbs a { text-decoration: none; color: var(--ink-3); }
+.crumbs a:hover { color: var(--ink); }
+.hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: start; }
+.big-icon { width: 84px; height: 84px; border-radius: 22px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: var(--on-primary); display: grid; place-items: center; font-size: 34px; box-shadow: var(--shadow); }
+.hero h1 { font-size: clamp(34px, 5.4vw, 60px); font-weight: 700; margin-bottom: 10px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
+.meta li { font: 500 12.5px var(--mono); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink-2); }
+.meta li.lvl { border-color: color-mix(in srgb, var(--gold) 60%, transparent); color: var(--gold); }
+.desc { color: var(--ink-2); font-size: 18px; max-width: 700px; margin: 0 0 24px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1.5px solid transparent; transition: transform .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--primary); color: var(--on-primary); }
+.progress { font-size: 14px; color: var(--ink-3); display: flex; align-items: center; gap: 10px; }
+.bar { width: 120px; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 6px; }
+@media (max-width: 640px) { .hero-grid { grid-template-columns: 1fr; } .big-icon { width: 64px; height: 64px; font-size: 26px; border-radius: 18px; } }
+
+/* Pestañas y filas del material */
+.material { padding: 20px 0 80px; }
+.panel { background: var(--card); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+.tabs { display: flex; gap: 4px; padding: 10px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tab { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 0; background: transparent; color: var(--ink-2); font: 600 14.5px var(--sans); cursor: pointer; transition: all .2s; }
+.tab:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.tab[aria-selected="true"] { background: var(--primary); color: var(--on-primary); }
+.tab .n { font: 500 11.5px var(--mono); opacity: .75; }
+.rows { list-style: none; margin: 0; padding: 6px 0; }
+.row { display: grid; grid-template-columns: 120px 1fr auto; gap: 18px; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--line); transition: background .2s; }
+.row:last-child { border-bottom: 0; }
+.row:hover { background: color-mix(in srgb, var(--primary) 7%, transparent); }
+.num { font: 500 12.5px var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+.ttl { font-weight: 600; font-size: 16.5px; }
+.lks { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.lk { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border-radius: 999px; font: 600 13.5px var(--sans); text-decoration: none; border: 1.5px solid var(--line); color: var(--ink); background: var(--card-solid); transition: all .2s; white-space: nowrap; }
+a.lk:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+a.lk.clase, a.lk.guia { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+a.lk.clase:hover, a.lk.guia:hover { background: var(--primary-2); color: var(--on-primary); }
+.lk.soon, .lk.note { color: var(--ink-3); border-style: dashed; background: transparent; font-weight: 500; }
+@media (max-width: 680px) { .row { grid-template-columns: 1fr; gap: 6px; padding: 16px 18px; } .lks { justify-content: flex-start; margin-top: 6px; } }
+
+/* Otros cursos */
+.more h2 { font-size: 22px; margin: 50px 0 16px; }
+.others { display: flex; flex-wrap: wrap; gap: 10px; }
+.other { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 14px; text-decoration: none; border: 1px solid var(--line); background: var(--card); font-weight: 500; font-size: 14.5px; transition: all .2s; }
+.other i { color: var(--primary); }
+.other:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+.footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--ink-3); font-size: 14px; }
+.footer .wrap { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+:focus-visible { outline: 2.5px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<canvas id="neural" aria-hidden="true"></canvas>
+
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="logo-mark">CY</span><span class="logo-text">Carlos Yanes</span></a>
+    <div class="tools">
+      <a href="index.html#cursos" class="back"><i class="fa-solid fa-arrow-left"></i> <span lang="es">Todos los cursos</span><span lang="en">All courses</span></a>
+      <button class="icon-btn" id="lang-btn" type="button">EN</button>
+      <button class="icon-btn" id="theme-btn" type="button"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="index.html#cursos"><span lang="es">Cursos</span><span lang="en">Courses</span></a> / <span lang="es">Pregrado</span><span lang="en">Undergraduate</span></p>
+      <div class="hero-grid">
+        <span class="big-icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+        <div>
+          <h1><span lang="es">Introducción a la Economía</span><span lang="en">Introduction to Economics</span></h1>
+          <ul class="meta">
+            <li class="lvl"><span lang="es">Pregrado</span><span lang="en">Undergraduate</span></li>
+            <li><span lang="es">Pregrado en Economía</span><span lang="en">B.A. in Economics</span></li>
+            <li>Universidad del Norte</li>
+          </ul>
+          <p class="desc" lang="es">Un curso lleno de elementos para un primer entendimiento de la economía. Las presentaciones se publican al final de cada semana de clases.</p>
+          <p class="desc" lang="en">A first course packed with the building blocks of economics. Slides are posted at the end of each week. Course materials are in Spanish.</p>
+          <div class="actions">
+            
+            <span class="progress"><span class="bar"><span style="width: calc(1 / 2 * 100%)"></span></span> 1 / 2 <span lang="es">materiales disponibles</span><span lang="en">materials available</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="material">
+    <div class="wrap">
+      <div class="panel" data-tabs>
+        <div class="tabs" role="tablist"><button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true"><i class="fa-solid fa-chalkboard-user"></i> <span lang="es">Clases</span><span lang="en">Lectures</span> <span class="n">1</span></button><button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false"><i class="fa-solid fa-circle-question"></i> <span lang="es">Preguntas de clase</span><span lang="en">Class questions</span> <span class="n">1</span></button></div>
+        <ol class="rows" role="tabpanel" id="p0" aria-labelledby="t0"><li class="row"><span class="num">Semana 01</span><span class="ttl">Introducción</span><span class="lks"><a class="lk clase" href="https://keynes37.github.io/Ieconomics/Clases/Clase-intro.html#1" target="_blank" rel="noopener"><i class="fa-solid fa-person-chalkboard"></i> Ver clase</a></span></li></ol><ol class="rows" role="tabpanel" id="p1" aria-labelledby="t1" hidden><li class="row"><span class="num">#1</span><span class="ttl">Grupo de preguntas</span><span class="lks"><span class="lk note">Por correo electrónico</span></span></li></ol>
+      </div>
+      <div class="more">
+        <h2><span lang="es">Otros cursos</span><span lang="en">Other courses</span></h2>
+        <div class="others"><a href="econometriai.html" class="other"><i class="fa-solid fa-chart-line"></i> <span lang="es">Econometría I</span><span lang="en">Econometrics I</span></a><a href="series.html" class="other"><i class="fa-solid fa-wave-square"></i> <span lang="es">Econometría II</span><span lang="en">Econometrics II</span></a><a href="macroeconomia.html" class="other"><i class="fa-solid fa-chart-simple"></i> <span lang="es">Principios de Macroeconomía</span><span lang="en">Principles of Macroeconomics</span></a><a href="health.html" class="other"><i class="fa-solid fa-user-doctor"></i> <span lang="es">Economía de la Salud</span><span lang="en">Health Economics</span></a><a href="periodismo.html" class="other"><i class="fa-solid fa-newspaper"></i> <span lang="es">Periodismo de Datos</span><span lang="en">Data Journalism</span></a><a href="mastere.html" class="other"><i class="fa-solid fa-bullseye"></i> <span lang="es">Evaluación de Impacto</span><span lang="en">Impact Evaluation</span></a><a href="ecomat.html" class="other"><i class="fa-solid fa-infinity"></i> <span lang="es">Economía Matemática</span><span lang="en">Mathematical Economics</span></a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Carlos Andrés Yanes Guerra · Universidad del Norte</span>
+    <a href="index.html"><span lang="es">Volver al inicio</span><span lang="en">Back to home</span></a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const isEN = () => document.documentElement.lang === 'en';
+  const L = (es, en) => isEN() ? en : es;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const langBtn = $('#lang-btn'), themeBtn = $('#theme-btn');
+  function sync() {
+    const dark = document.documentElement.dataset.theme !== 'light';
+    langBtn.textContent = isEN() ? 'ES' : 'EN';
+    langBtn.setAttribute('aria-label', L('Ver en inglés', 'View in Spanish'));
+    themeBtn.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    themeBtn.setAttribute('aria-label', dark ? L('Cambiar a modo claro', 'Switch to light mode') : L('Cambiar a modo oscuro', 'Switch to dark mode'));
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#08111f' : '#f3f6fb';
+  }
+  langBtn.addEventListener('click', () => {
+    const next = isEN() ? 'es' : 'en';
+    document.documentElement.lang = next;
+    try { localStorage.setItem('cy-lang', next); } catch (e) {}
+    sync();
+  });
+  themeBtn.addEventListener('click', () => {
+    const light = document.documentElement.dataset.theme !== 'light';
+    if (light) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('cy-theme', light ? 'light' : 'dark'); } catch (e) {}
+    sync(); document.dispatchEvent(new Event('themechange'));
+  });
+
+  // Pestañas
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const select = (i, focus) => {
+    tabs.forEach((t, j) => {
+      const on = i === j;
+      t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tabs[i].focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(i));
+    t.addEventListener('keydown', e => {
+      const n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (n === undefined) return;
+      e.preventDefault(); select((n + tabs.length) % tabs.length, true);
+    });
+  });
+  select(0);
+
+  // ---------- Fondo: red neuronal con ecuaciones ----------
+  (() => {
+    const cv = $('#neural'), cx = cv.getContext('2d');
+    const EQS = ['β̂ = (X′X)⁻¹X′y', 'yₜ = φyₜ₋₁ + εₜ', 'σ(z) = 1 / (1 + e⁻ᶻ)', 'ε ~ N(0, σ²)', 'E[Y | X] = Xβ',
+      'ATE = E[Y(1) − Y(0)]', 'R² = 1 − SSR/SST', '∂L/∂w = (ŷ − y)·x', 'P(A|B) = P(B|A)P(A) / P(B)',
+      'x̄ = Σxᵢ / n', 'ŷ = f(Wx + b)', 'ℓ(θ) = Σ ln f(yᵢ; θ)', 'Var(β̂) = σ²(X′X)⁻¹', 'Δyₜ = μ + θεₜ₋₁ + εₜ',
+      'ρ = Cov(X,Y) / σₓσᵧ', 'Yᵢ = α + τDᵢ + X′ᵢβ + uᵢ'];
+    let W, H, nodes = [], pulses = [], eqs = [], running = false, rgbN, rgbP, rgbT;
+    const mouse = { x: -9999, y: -9999 };
+    const LINK = 140;
+    const readColors = () => { rgbN = css('--net-node'); rgbP = css('--net-pulse'); rgbT = css('--net-text'); };
+    function setup() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      W = innerWidth; H = innerHeight;
+      cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(85, Math.max(28, W * H / 17000)));
+      nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, r: Math.random() * 1.6 + 1.2, fire: 0 }));
+      const m = W < 700 ? 5 : 9;
+      eqs = Array.from({ length: m }, (_, i) => newEq(Math.random() * H, i));
+      pulses = [];
+      readColors(); frame();
+    }
+    function newEq(y, i) {
+      return { t: EQS[(i ?? Math.floor(Math.random() * EQS.length)) % EQS.length], x: Math.random() * (W - 160) + 20, y,
+               v: .12 + Math.random() * .18, s: 13 + Math.random() * 7, a: .10 + Math.random() * .10 };
+    }
+    function frame() {
+      cx.clearRect(0, 0, W, H);
+      // ecuaciones flotando
+      cx.textAlign = 'left';
+      for (const e of eqs) {
+        cx.font = `500 ${e.s}px "JetBrains Mono", monospace`;
+        cx.fillStyle = `rgba(${rgbT}, ${e.a})`;
+        cx.fillText(e.t, e.x, e.y);
+      }
+      // conexiones (sinapsis)
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < LINK) {
+            cx.strokeStyle = `rgba(${rgbN}, ${.22 * (1 - d / LINK)})`; cx.lineWidth = 1;
+            cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
+          }
+        }
+        const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+        if (md < 180) {
+          cx.strokeStyle = `rgba(${rgbP}, ${.35 * (1 - md / 180)})`;
+          cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(mouse.x, mouse.y); cx.stroke();
+        }
+      }
+      // impulsos que viajan entre neuronas
+      for (const p of pulses) {
+        const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+        const g = cx.createRadialGradient(x, y, 0, x, y, 7);
+        g.addColorStop(0, `rgba(${rgbP}, .9)`); g.addColorStop(1, `rgba(${rgbP}, 0)`);
+        cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, 7, 0, 7); cx.fill();
+      }
+      // neuronas
+      for (const a of nodes) {
+        if (a.fire > 0) {
+          cx.fillStyle = `rgba(${rgbP}, ${.25 * a.fire})`; cx.beginPath(); cx.arc(a.x, a.y, a.r + 7 * a.fire, 0, 7); cx.fill();
+        }
+        cx.fillStyle = a.fire > .2 ? `rgba(${rgbP}, .95)` : `rgba(${rgbN}, .75)`;
+        cx.beginPath(); cx.arc(a.x, a.y, a.r, 0, 7); cx.fill();
+      }
+    }
+    function fireFrom(a) {
+      a.fire = 1;
+      const near = nodes.filter(b => b !== a && Math.hypot(a.x - b.x, a.y - b.y) < LINK);
+      near.sort(() => Math.random() - .5).slice(0, 2).forEach(b => pulses.push({ a, b, t: 0, hops: 0 }));
+    }
+    let lastFire = 0;
+    function step(now) {
+      if (!running) return;
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < -20) n.x = W + 20; if (n.x > W + 20) n.x = -20;
+        if (n.y < -20) n.y = H + 20; if (n.y > H + 20) n.y = -20;
+        n.fire *= .95;
+        const md = Math.hypot(n.x - mouse.x, n.y - mouse.y);
+        if (md < 60 && n.fire < .1 && Math.random() < .05) fireFrom(n);
+      }
+      if (now - lastFire > 700 && pulses.length < 14) { fireFrom(nodes[Math.floor(Math.random() * nodes.length)]); lastFire = now; }
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i]; p.t += .018;
+        if (p.t >= 1) {
+          pulses.splice(i, 1); p.b.fire = 1;
+          if (p.hops < 3 && Math.random() < .7) {
+            const near = nodes.filter(c => c !== p.b && c !== p.a && Math.hypot(p.b.x - c.x, p.b.y - c.y) < LINK);
+            if (near.length) pulses.push({ a: p.b, b: near[Math.floor(Math.random() * near.length)], t: 0, hops: p.hops + 1 });
+          }
+        }
+      }
+      for (let i = 0; i < eqs.length; i++) { const e = eqs[i]; e.y -= e.v; if (e.y < -30) eqs[i] = newEq(H + 30); }
+      frame();
+      requestAnimationFrame(step);
+    }
+    const setRun = on => { if (reduceMotion) return; if (on && !running) { running = true; requestAnimationFrame(step); } if (!on) running = false; };
+    addEventListener('pointermove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    document.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
+    document.addEventListener('visibilitychange', () => setRun(!document.hidden));
+    document.addEventListener('themechange', () => { readColors(); frame(); });
+    let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(setup, 200); });
+    setup(); setRun(true);
+  })();
+
+
+  sync();
+})();
+</script>
+</body>
+</html>
